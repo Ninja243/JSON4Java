@@ -28,11 +28,12 @@ package json4java;
 /**
  * This file aims to represent a "rule" or "line" in a JSON document.
  * Multiple rules wrapped in curly brackets make a JSON object.
+ * If possible, try to store your information as a string inside this object.
  * @author mweya
  */
 import java.util.ArrayList;
 import java.util.LinkedList;
-public class JSONRule {
+public class JSONRule<AnyType> {
     private String selector = null; // The leftmost part of a rule that tells you what the information to the right of the colon is for
     private String value = null; // The rightmost part of the rule which can be one value, a whole nested object or an array of vaules
     
@@ -43,6 +44,44 @@ public class JSONRule {
     public JSONRule(String selector, String value) {
         this.selector = selector;
         this.value = "\""+value+"\"";
+    }
+    
+    // For rules with an integer as a value
+    public JSONRule(String selector, int value) {
+        this.selector = selector;
+        this.value = Integer.toString(value);
+    }
+    
+    // For rules with a double as a value
+    public JSONRule(String selector, double value) {
+        this.selector = selector;
+        this.value = Double.toString(value);
+    }
+
+    // For rules with an array of Doubles as the value
+    public JSONRule(String selector, double[] value) {
+        this.selector = selector;
+        this.value = "[";
+        int j = 0;
+        while (j<value.length-1) {
+            this.value = this.value+Double.toString(value[j])+",";
+            j = j+1;
+        }
+        this.value = this.value+Double.toString(value[j]);
+        this.value = this.value+"]";
+    }
+    
+    // For rules with an array of integers as the value
+    public JSONRule(String selector, int[] value) {
+        this.selector = selector;
+        this.value = "[";
+        int j = 0;
+        while (j<value.length-1) {
+            this.value = this.value+Integer.toString(value[j])+",";
+            j = j+1;
+        }
+        this.value = this.value+Integer.toString(value[j]);
+        this.value = this.value+"]";
     }
     
     // For a rule consisting of an array of values for a single selector
