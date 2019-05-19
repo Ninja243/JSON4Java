@@ -36,7 +36,6 @@ public class JSON4Java {
      */
     public static void main(String[] args) {
         System.out.println("JSON4Java\nMweya Ruider - 2019\n\nUsage: Import the JSONObject class from this project and write rules to is using the addRule() method.\nFor new releases and documentation, visit this project's GitHub at the link below:\nhttps://github.com/Ninja243/JSON4Java");
-
     }
     
 }
