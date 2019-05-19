@@ -37,15 +37,19 @@ import java.io.File;
 public class JSONObject {
     private ArrayList<JSONRule> rules = new ArrayList();
     
-    // Empty constructor here for completeness' sake
+    /** Empty constructor here for completeness' sake */
     public JSONObject() {}
     
-    // In case you've already got a list of rules
+    /** In case you've already got a list of rules
+     * @param rules an ArrayList of rules
+     */
     public JSONObject(ArrayList rules) {
         this.rules = rules;
     }
     
-    // In case you've already got a linked list of rules
+    /** In case you've already got a linked list of rules
+     * @param rules a list of JSONRules
+     */
     public JSONObject(LinkedList rules) {
         int j = 0;
         while (j<rules.size()) {
@@ -54,73 +58,138 @@ public class JSONObject {
         }
     }
     
+    /** Add a new rule to the JSON object
+     * @param selector is the leftmost part of the rule which gives context to the value supplied to the right of the colon that divides them.
+     * @param value is the value to be assigned to the selector
+     */
     public void insertRule(String selector, double value) {
         addRule(selector, value);
     }
 
+    /** Add a new rule to the JSON object
+     * @param selector is the leftmost part of the rule which gives context to the value supplied to the right of the colon that divides them.
+     * @param value is the value to be assigned to the selector
+     */
     public void insertRule(String selector, double[] value) {
         addRule(selector, value);
     }
     
+    /** Add a new rule to the JSON object
+     * @param selector is the leftmost part of the rule which gives context to the value supplied to the right of the colon that divides them.
+     * @param value is the value to be assigned to the selector
+     */
     public void insertRule(String selector, int value) {
         addRule(selector, value);
     }
     
+    /** Add a new rule to the JSON object
+     * @param selector is the leftmost part of the rule which gives context to the value supplied to the right of the colon that divides them.
+     * @param value is the value to be assigned to the selector
+     */
     public void insertRule(String selector, int[] value) {
         addRule(selector, value);
     }
     
+    /** Add a new rule to the JSON object
+     * @param selector is the leftmost part of the rule which gives context to the value supplied to the right of the colon that divides them.
+     * @param value is the value to be assigned to the selector
+     */
     public void addRule(String selector, double value) {
         addRule(new JSONRule(selector, value));
     }
 
+    /** Add a new rule to the JSON object
+     * @param selector is the leftmost part of the rule which gives context to the value supplied to the right of the colon that divides them.
+     * @param value is the value to be assigned to the selector
+     */
     public void addRule(String selector, double[] value) {
         addRule(new JSONRule(selector, value));
     }
     
+    /** Add a new rule to the JSON object
+     * @param selector is the leftmost part of the rule which gives context to the value supplied to the right of the colon that divides them.
+     * @param value is the value to be assigned to the selector
+     */
     public void addRule(String selector, int value) {
         addRule(new JSONRule(selector, value));
     }
     
+    /** Add a new rule to the JSON object
+     * @param selector is the leftmost part of the rule which gives context to the value supplied to the right of the colon that divides them.
+     * @param value is the value to be assigned to the selector
+     */
     public void addRule(String selector, int[] value) {
         addRule(new JSONRule(selector, value));
     }
     
+    /** Add a new rule to the JSON object
+     * @param selector is the leftmost part of the rule which gives context to the value supplied to the right of the colon that divides them.
+     * @param value is the value to be assigned to the selector
+     */
     public void insertRule(String selector, String value) {
         addRule(selector, value);
     }
     
+    /** Add a new rule to the JSON object
+     * @param selector is the leftmost part of the rule which gives context to the value supplied to the right of the colon that divides them.
+     * @param value is the value to be assigned to the selector
+     */
     public void addRule(String selector, String value) {
         JSONRule toinsert = new JSONRule(selector, value);
         addRule(toinsert);
     }
     
+    /** Add a new rule to the JSON object
+     * @param selector is the leftmost part of the rule which gives context to the value supplied to the right of the colon that divides them.
+     * @param value is the value to be assigned to the selector
+     */
     public void insertRule(String selector, JSONRule[] value) {
         addRule(selector, value);
     }
     
+    /** Add a new rule to the JSON object
+     * @param selector is the leftmost part of the rule which gives context to the value supplied to the right of the colon that divides them.
+     * @param value is the value to be assigned to the selector
+     */
     public void addRule(String selector, JSONRule[] value) {
         JSONRule toinsert = new JSONRule(selector, value);
         addRule(toinsert);
     }
     
+    /** Add a new rule to the JSON object
+     *  @param rule is a JSONRule object
+     */
     public void insertRule(JSONRule rule) {
         addRule(rule);
     }
     
+    /** Add a new rule to the JSON object
+     *  @param rule is a JSONRule object
+     */
     public void addRule(JSONRule rule) {
         this.rules.add(rule);
     }
     
+    /** Add a new rule to the JSON object
+     * @param selector is the leftmost part of the rule which gives context to the value supplied to the right of the colon that divides them.
+     * @param value is the value to be assigned to the selector
+     */
     public void insertRule(String selector, JSONObject value) {
         addRule(selector, value);
     }
     
+    /** Add a new rule to the JSON object
+     * @param selector is the leftmost part of the rule which gives context to the value supplied to the right of the colon that divides them.
+     * @param value is the value to be assigned to the selector
+     */
     public void addRule (String selector, JSONObject value) {
         this.rules.add(new JSONRule(selector, value));
     }
     
-    // Return a rule at a specified position. If not found, return null.
+    /** Return a rule at a specified position. If not found, return null.
+     * @param position the position of the rule to return
+     * @return the JSONRule or null
+     */
     public JSONRule getRule(int position) {
         if (position <= this.rules.size()) {
             if (position > -1) {
@@ -130,7 +199,10 @@ public class JSONObject {
         return null;
     }
     
-    // Linear search as the list of rules isn't sorted, returns null if not found
+    /** Linear search as the list of rules isn't sorted, returns null if not found
+     * @param selector is the leftmost part of the rule which gives context to the value supplied to the right of the colon that divides them
+     * @return the JSONRule or null
+     */
     public JSONRule searchSelector(String selector) {
         int j = 0;
         while (j<this.rules.size()) {
@@ -142,14 +214,23 @@ public class JSONObject {
         return null;
     }
     
+    /** Deletes a rule from the JSONObject 
+     * @param position the position of the rule
+     */
     public void deleteRule(int position) {
         removeRule(position);
     }
     
+    /** Deletes a rule from the JSONObject 
+     * @param selector is the leftmost part of the rule which gives context to the value supplied to the right of the colon that divides them
+     */
     public void deleteRule(String selector) {
         removeRule(selector);
     }
     
+    /** Deletes a rule from the JSONObject 
+     * @param position the position of the rule
+     */
     public void removeRule(int position) {
         if (position <= this.rules.size()) {
             if (position > -1) {
@@ -158,6 +239,9 @@ public class JSONObject {
         }
     }
     
+    /** Deletes a rule from the JSONObject 
+     * @param selector is the leftmost part of the rule which gives context to the value supplied to the right of the colon that divides them
+     */
     public void removeRule(String selector) {
         JSONRule toremove = searchSelector(selector);
         if (toremove != null) {
@@ -168,7 +252,10 @@ public class JSONObject {
     // Make a JSONObject from a file
     // TODO
     
-    // Print object to a file
+    /** Print object to a file
+     * @param path where to save the file
+     * @throws IOException 
+     */
     public void toFile(String path) throws IOException {
         try (PrintWriter pw = new PrintWriter(new File(path))) {
             pw.write(this.toString());
@@ -176,6 +263,9 @@ public class JSONObject {
         }
     }
     
+    /** Show representation of object as string
+     * @return contents of this object as string
+     */
     @Override
     public String toString() {
         int j = 0;

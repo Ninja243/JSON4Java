@@ -34,31 +34,43 @@ package json4java;
 import java.util.ArrayList;
 import java.util.LinkedList;
 public class JSONRule<AnyType> {
-    private String selector = null; // The leftmost part of a rule that tells you what the information to the right of the colon is for
-    private String value = null; // The rightmost part of the rule which can be one value, a whole nested object or an array of vaules
+    private String selector = null; /** The leftmost part of a rule that tells you what the information to the right of the colon is for */
+    private String value = null; /** The rightmost part of the rule which can be one value, a whole nested object or an array of vaules */
     
-    // Empty constructor, here for completeness' sake
+    /** Empty constructor, here for completeness' sake */
     public JSONRule() {}
     
-    // For a simple rule consisting of a single value for a single selector
+    /** For a simple rule consisting of a single value for a single selector
+     * @param selector is the leftmost part of the rule which gives context to the value supplied to the right of the colon that divides them.
+     * @param value is the value to be assigned to the selector
+     */
     public JSONRule(String selector, String value) {
         this.selector = selector;
         this.value = "\""+value+"\"";
     }
     
-    // For rules with an integer as a value
+    /** For rules with an integer as a value
+     * @param selector is the leftmost part of the rule which gives context to the value supplied to the right of the colon that divides them.
+     * @param value is the value to be assigned to the selector
+     */
     public JSONRule(String selector, int value) {
         this.selector = selector;
         this.value = Integer.toString(value);
     }
     
-    // For rules with a double as a value
+    /** For rules with a double as a value
+     * @param selector is the leftmost part of the rule which gives context to the value supplied to the right of the colon that divides them.
+     * @param value is the value to be assigned to the selector
+     */
     public JSONRule(String selector, double value) {
         this.selector = selector;
         this.value = Double.toString(value);
     }
 
-    // For rules with an array of Doubles as the value
+    /** For rules with an array of Doubles as the value
+     * @param selector is the leftmost part of the rule which gives context to the value supplied to the right of the colon that divides them.
+     * @param value is the value to be assigned to the selector
+     */
     public JSONRule(String selector, double[] value) {
         this.selector = selector;
         this.value = "[";
@@ -71,7 +83,10 @@ public class JSONRule<AnyType> {
         this.value = this.value+"]";
     }
     
-    // For rules with an array of integers as the value
+    /** For rules with an array of integers as the value
+     * @param selector is the leftmost part of the rule which gives context to the value supplied to the right of the colon that divides them.
+     * @param value is the value to be assigned to the selector
+     */
     public JSONRule(String selector, int[] value) {
         this.selector = selector;
         this.value = "[";
@@ -84,7 +99,10 @@ public class JSONRule<AnyType> {
         this.value = this.value+"]";
     }
     
-    // For a rule consisting of an array of values for a single selector
+    /** For a rule consisting of an array of values for a single selector
+     * @param selector is the leftmost part of the rule which gives context to the value supplied to the right of the colon that divides them.
+     * @param value is the value to be assigned to the selector
+     */
     public JSONRule(String selector, String[] value) {
         this.selector = selector;
         this.value = "[";
@@ -97,7 +115,10 @@ public class JSONRule<AnyType> {
         this.value = this.value+"]";
     }
     
-    // For an array of nested objects because ofc that's a thing
+    /** For an array of nested objects because ofc that's a thing
+     * @param selector is the leftmost part of the rule which gives context to the value supplied to the right of the colon that divides them.
+     * @param value is the value to be assigned to the selector
+     */
     public JSONRule(String selector, JSONRule[] value) {
         this.selector = selector;
         this.value = "[";
@@ -110,8 +131,10 @@ public class JSONRule<AnyType> {
         this.value = this.value+"]";
     }
     
-    // For a rule consisting of a ArrayList of values for a single selector
-    // Same idea as above really
+    /** For a rule consisting of a ArrayList of values for a single selector
+     * @param selector is the leftmost part of the rule which gives context to the value supplied to the right of the colon that divides them.
+     * @param value is the value to be assigned to the selector
+     */
     public JSONRule(String selector, ArrayList value) {
         this.selector = selector;
         this.value = "[";
@@ -124,7 +147,10 @@ public class JSONRule<AnyType> {
         this.value = this.value+"]";
     }
     
-    // For a rule conisting of a Linked List of values and a single selector
+    /** For a rule conisting of a Linked List of values and a single selector
+     * @param selector is the leftmost part of the rule which gives context to the value supplied to the right of the colon that divides them.
+     * @param value is the value to be assigned to the selector
+     */
     public JSONRule(String selector, LinkedList value) {
         this.selector = selector;
         this.value = "[";
@@ -137,19 +163,26 @@ public class JSONRule<AnyType> {
         this.value = this.value+"]";
     }
     
-    // For a rule consisting of an embedded object
+    /** For a rule consisting of an embedded object
+     * @param selector is the leftmost part of the rule which gives context to the value supplied to the right of the colon that divides them.
+     * @param value is the value to be assigned to the selector
+     */
     public JSONRule(String selector, JSONObject value) {
         this.selector = selector;
         this.value = value.toString();
     }
     
-    // Returns the selector part of this rule
+    /** @return the selector part of this rule
+     */
     public String getSelector() {
         return this.selector;
     }
     
+    /**
+     * @return the selector and value as a string
+     */
     @Override
     public String toString() {
-        return selector+":"+value;
+        return "\""+selector+"\""+":"+value;
     }
 }
