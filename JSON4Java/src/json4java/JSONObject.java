@@ -54,12 +54,61 @@ public class JSONObject {
         }
     }
     
+    public void insertRule(String selector, double value) {
+        addRule(selector, value);
+    }
+
+    public void insertRule(String selector, double[] value) {
+        addRule(selector, value);
+    }
+    
+    public void insertRule(String selector, int value) {
+        addRule(selector, value);
+    }
+    
+    public void insertRule(String selector, int[] value) {
+        addRule(selector, value);
+    }
+    
+    public void addRule(String selector, double value) {
+        addRule(new JSONRule(selector, value));
+    }
+
+    public void addRule(String selector, double[] value) {
+        addRule(new JSONRule(selector, value));
+    }
+    
+    public void addRule(String selector, int value) {
+        addRule(new JSONRule(selector, value));
+    }
+    
+    public void addRule(String selector, int[] value) {
+        addRule(new JSONRule(selector, value));
+    }
+    
+    public void insertRule(String selector, String value) {
+        addRule(selector, value);
+    }
+    
+    public void addRule(String selector, String value) {
+        JSONRule toinsert = new JSONRule(selector, value);
+        addRule(toinsert);
+    }
+    
     public void insertRule(JSONRule rule) {
         addRule(rule);
     }
     
     public void addRule(JSONRule rule) {
         this.rules.add(rule);
+    }
+    
+    public void insertRule(String selector, JSONObject value) {
+        addRule(selector, value);
+    }
+    
+    public void addRule (String selector, JSONObject value) {
+        this.rules.add(new JSONRule(selector, value));
     }
     
     // Return a rule at a specified position. If not found, return null.
@@ -122,11 +171,13 @@ public class JSONObject {
     public String toString() {
         int j = 0;
         String out = "{";
-        while (j<this.rules.size()-1) {
-            out = out+rules.get(j).toString()+",\n";
-            j = j+1;
+        if (this.rules.size() > 0){
+            while (j<this.rules.size()-1) {
+                out = out+rules.get(j).toString()+",\n";
+                j = j+1;
+            }
+            out = out+rules.get(j).toString();
         }
-        out = out+rules.get(j).toString();
         out = out+"}";
         return out;
     }
