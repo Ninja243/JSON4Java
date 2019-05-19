@@ -97,6 +97,19 @@ public class JSONRule<AnyType> {
         this.value = this.value+"]";
     }
     
+    // For an array of nested objects because ofc that's a thing
+    public JSONRule(String selector, JSONRule[] value) {
+        this.selector = selector;
+        this.value = "[";
+        int j = 0;
+        while (j<value.length-1) {
+            this.value = this.value+value[j].toString()+",";
+            j = j+1;
+        }
+        this.value = this.value+value[j];
+        this.value = this.value+"]";
+    }
+    
     // For a rule consisting of a ArrayList of values for a single selector
     // Same idea as above really
     public JSONRule(String selector, ArrayList value) {

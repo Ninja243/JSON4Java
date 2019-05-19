@@ -95,6 +95,15 @@ public class JSONObject {
         addRule(toinsert);
     }
     
+    public void insertRule(String selector, JSONRule[] value) {
+        addRule(selector, value);
+    }
+    
+    public void addRule(String selector, JSONRule[] value) {
+        JSONRule toinsert = new JSONRule(selector, value);
+        addRule(toinsert);
+    }
+    
     public void insertRule(JSONRule rule) {
         addRule(rule);
     }
