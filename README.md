@@ -9,23 +9,37 @@ create a new instance of the JSONObject class like this:
 ```java
 JSONObject json = new JSONObject();
 ```
-and add your information like this:
-
+### Adding information
 ```java
 json.addRule("name", "Mweya");
+json.addRule("age", 20);
 ```
-
-A JSONObject of my type has support for searching for rules by selector,
+This even works for arrays!
+```java
+int[] ages = {12, 23, 55};
+json.addRule("ages", ages);
+```
+Documents and arrays of rules can be added in a similar fashion:
+```java
+JSONObject location = newJSONObject();
+location.addRule("lat", 31.445363);
+location.addRule("long", 23.343567);
+json.addRule("location", location);
+```
+### Searching for rules
 ```java
 JSONRule rule = json.searchSelector("name");
 ```
-support for deleting a rule,
+### Deleting rules
 ```java
 json.deleteRule("name");
-json.removeRule("city"); // This works too
+json.removeRule("city");
+```
+Rules at a certain index can be deleted in a similar fashion:
+```java
 json.deleteRule(2);
 ```
-and can write itself to a file
+### Writing to a file
 ```java
 json.toFile("file.json");
 ```
