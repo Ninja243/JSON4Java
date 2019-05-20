@@ -41,12 +41,50 @@ public class JSONRule<AnyType> {
     public JSONRule() {}
     
     /** For a simple rule consisting of a single value for a single name
-     * @param name is the leftmost part of the rule which gives context to the value supplied to the right of the colon that divides them.
+     * @param name is the leftmost part of the rule which gives context to the value supplied to the right of the colon that divides them
      * @param value is the value to be assigned to the name
      */
     public JSONRule(String name, String value) {
         this.name = name;
         this.value = "\""+value+"\"";
+    }
+    
+    /** For a simple rule consisting of a single boolean value for a single name
+     * @param name is the leftmost part of the rule which gives context to the value supplied to the right of the colon that divides them
+     * @param value is the value to be assigned to the name
+     */
+    public JSONRule(String name, boolean value) {
+        this.name = name;
+        if (value) {
+            this.value = "true";
+        } else {
+            this.value = "false";
+        }
+    }
+    
+    /** For a simple rule consisting of an array of boolean values for a single name
+     * @param name is the leftmost part of the rule which gives context to the value supplied to the right of the colon that divides them
+     * @param value is the value to be assigned to the name
+     */
+    public JSONRule(String name, boolean[] value) {
+        this.name = name;
+        int j = 0;
+        this.value = "[";
+        while (j<value.length-1) {
+            if (value[j]) {
+                this.value = this.value+"true"+",";
+            } else {
+                this.value = this.value+"false"+",";
+            }
+            j = j+1;
+        }
+        if (value[j]) {
+            this.value = this.value+"true";
+            
+        } else {
+            this.value = this.value+"false";
+        }
+        this.value = this.value+"]";
     }
     
     /** For rules with an integer as a value
