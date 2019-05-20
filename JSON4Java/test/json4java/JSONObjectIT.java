@@ -63,10 +63,10 @@ public class JSONObjectIT {
     @Test
     public void testInsertRule_String_double() {
         System.out.println("insertRule");
-        String selector = "";
+        String name = "";
         double value = 0.0;
         JSONObject instance = new JSONObject();
-        instance.insertRule(selector, value);
+        instance.insertRule(name, value);
     }
 
     /**
@@ -75,10 +75,10 @@ public class JSONObjectIT {
     @Test
     public void testInsertRule_String_doubleArr() {
         System.out.println("insertRule");
-        String selector = "";
+        String name = "";
         double[] value = null;
         JSONObject instance = new JSONObject();
-        instance.insertRule(selector, value);
+        instance.insertRule(name, value);
     }
 
     /**
@@ -87,10 +87,10 @@ public class JSONObjectIT {
     @Test
     public void testInsertRule_String_int() {
         System.out.println("insertRule");
-        String selector = "";
+        String name = "";
         int value = 0;
         JSONObject instance = new JSONObject();
-        instance.insertRule(selector, value);
+        instance.insertRule(name, value);
     }
 
     /**
@@ -99,10 +99,10 @@ public class JSONObjectIT {
     @Test
     public void testInsertRule_String_intArr() {
         System.out.println("insertRule");
-        String selector = "";
+        String name = "";
         int[] value = null;
         JSONObject instance = new JSONObject();
-        instance.insertRule(selector, value);
+        instance.insertRule(name, value);
     }
 
     /**
@@ -111,10 +111,10 @@ public class JSONObjectIT {
     @Test
     public void testAddRule_String_double() {
         System.out.println("addRule");
-        String selector = "";
+        String name = "";
         double value = 0.0;
         JSONObject instance = new JSONObject();
-        instance.addRule(selector, value);
+        instance.addRule(name, value);
     }
 
     /**
@@ -123,10 +123,10 @@ public class JSONObjectIT {
     @Test
     public void testAddRule_String_doubleArr() {
         System.out.println("addRule");
-        String selector = "";
+        String name = "";
         double[] value = null;
         JSONObject instance = new JSONObject();
-        instance.addRule(selector, value);
+        instance.addRule(name, value);
     }
 
     /**
@@ -135,10 +135,10 @@ public class JSONObjectIT {
     @Test
     public void testAddRule_String_int() {
         System.out.println("addRule");
-        String selector = "";
+        String name = "";
         int value = 0;
         JSONObject instance = new JSONObject();
-        instance.addRule(selector, value);
+        instance.addRule(name, value);
     }
 
     /**
@@ -147,10 +147,10 @@ public class JSONObjectIT {
     @Test
     public void testAddRule_String_intArr() {
         System.out.println("addRule");
-        String selector = "";
+        String name = "";
         int[] value = null;
         JSONObject instance = new JSONObject();
-        instance.addRule(selector, value);
+        instance.addRule(name, value);
     }
 
     /**
@@ -159,10 +159,10 @@ public class JSONObjectIT {
     @Test
     public void testInsertRule_String_String() {
         System.out.println("insertRule");
-        String selector = "";
+        String name = "";
         String value = "";
         JSONObject instance = new JSONObject();
-        instance.insertRule(selector, value);
+        instance.insertRule(name, value);
     }
 
     /**
@@ -171,10 +171,10 @@ public class JSONObjectIT {
     @Test
     public void testAddRule_String_String() {
         System.out.println("addRule");
-        String selector = "";
+        String name = "";
         String value = "";
         JSONObject instance = new JSONObject();
-        instance.addRule(selector, value);
+        instance.addRule(name, value);
     }
 
     /**
@@ -183,10 +183,10 @@ public class JSONObjectIT {
     @Test
     public void testInsertRule_String_JSONRuleArr() {
         System.out.println("insertRule");
-        String selector = "";
+        String name = "";
         JSONRule[] value = null;
         JSONObject instance = new JSONObject();
-        instance.insertRule(selector, value);
+        instance.insertRule(name, value);
     }
 
     /**
@@ -195,10 +195,10 @@ public class JSONObjectIT {
     @Test
     public void testAddRule_String_JSONRuleArr() {
         System.out.println("addRule");
-        String selector = "";
+        String name = "";
         JSONRule[] value = null;
         JSONObject instance = new JSONObject();
-        instance.addRule(selector, value);
+        instance.addRule(name, value);
     }
 
     /**
@@ -229,10 +229,10 @@ public class JSONObjectIT {
     @Test
     public void testInsertRule_String_JSONObject() {
         System.out.println("insertRule");
-        String selector = "";
+        String name = "";
         JSONObject value = null;
         JSONObject instance = new JSONObject();
-        instance.insertRule(selector, value);
+        instance.insertRule(name, value);
     }
 
     /**
@@ -241,10 +241,10 @@ public class JSONObjectIT {
     @Test
     public void testAddRule_String_JSONObject() {
         System.out.println("addRule");
-        String selector = "";
+        String name = "";
         JSONObject value = null;
         JSONObject instance = new JSONObject();
-        instance.addRule(selector, value);
+        instance.addRule(name, value);
     }
 
     /**
@@ -261,15 +261,15 @@ public class JSONObjectIT {
     }
 
     /**
-     * Test of searchSelector method, of class JSONObject.
+     * Test of searchName method, of class JSONObject.
      */
     @Test
-    public void testSearchSelector() {
-        System.out.println("searchSelector");
-        String selector = "";
+    public void testSearchName() {
+        System.out.println("searchName");
+        String name = "";
         JSONObject instance = new JSONObject();
         JSONRule expResult = null;
-        JSONRule result = instance.searchSelector(selector);
+        JSONRule result = instance.searchName(name);
         assertEquals(expResult, result);
     }
 
@@ -290,9 +290,9 @@ public class JSONObjectIT {
     @Test
     public void testDeleteRule_String() {
         System.out.println("deleteRule");
-        String selector = "";
+        String name = "";
         JSONObject instance = new JSONObject();
-        instance.deleteRule(selector);
+        instance.deleteRule(name);
     }
 
     /**
@@ -312,9 +312,9 @@ public class JSONObjectIT {
     @Test
     public void testRemoveRule_String() {
         System.out.println("removeRule");
-        String selector = "";
+        String name = "";
         JSONObject instance = new JSONObject();
-        instance.removeRule(selector);
+        instance.removeRule(name);
     }
 
     /**
