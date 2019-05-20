@@ -1,5 +1,5 @@
 # JSON4Java
-My implementation of methods handling JSON data in Java.
+My implementation of methods handling JSON data in Java. The parser and lexer used here were appropriated and translated from Eaton Phil's awesome pj library found at https://github.com/eatonphil/pj/blob/master/pj/lexer.py
 
 ## Usage
 Grab a JAR from the release page or clone this project and insert it into
