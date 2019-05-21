@@ -13,6 +13,7 @@ JSONObject json = new JSONObject();
 ```java
 json.addRule("name", "Mweya");
 json.addRule("age", 20);
+json.addRule("bored", true);
 ```
 This even works for arrays!
 ```java
