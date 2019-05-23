@@ -49,6 +49,21 @@ public class JSONRule<AnyType> {
         this.value = "\""+value+"\"";
     }
     
+    
+    /** Sets the value of the JSONRule to the value specified
+     * @param value the new value the rule should have
+     */
+    public void setValue(AnyType value) {
+        this.value = (String) value;
+    }
+    
+    /** Sets the name of the JSONRule to the value specified
+     * @param name the new name of the JSONRule
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+    
     /** For a simple rule consisting of a single boolean value for a single name
      * @param name is the leftmost part of the rule which gives context to the value supplied to the right of the colon that divides them
      * @param value is the value to be assigned to the name

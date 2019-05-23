@@ -253,21 +253,26 @@ public class JSONObject {
     
     /** Make a JSONObject from a file 
      *  @param path the path to the JSON file to make an object from
-     *  @return a JSONObject
+     *  @return a JSONObject if completed successfully, null if an error occured
      *  @throws IOException
      *  @hidden
      *  This is _not_ finished
      */
     public JSONObject fromFile(String path) throws IOException {
-    /*    JSONObject toreturn = null;
+       ArrayList tokens = new ArrayList();
+       JSONObject toreturn = null;
         try (FileReader f = new FileReader(path); BufferedReader r = new BufferedReader(f)) {
             String input = "";
             String line;
             while ((line = r.readLine()) != null) {
                 input = input+line+"\n";
             }
+            Lexer l = new Lexer();
+            Parser p  = new Parser();
+            return p.parse(l.lex(input), true);
+        } catch (Exception e) {
+            System.err.println(e.toString());
         }
-        */
         return null;
     }
     
