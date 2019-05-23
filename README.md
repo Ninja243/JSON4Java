@@ -1,5 +1,5 @@
 # JSON4Java
-My implementation of methods handling JSON data in Java. The parser and lexer used here were appropriated and translated from Eaton Phil's awesome pj library found at https://github.com/eatonphil/pj/blob/master/pj/lexer.py
+My implementation of methods handling JSON data in Java. The parser and lexer used here were appropriated and translated from Eaton Phil's awesome pj library found at https://github.com/eatonphil/pj/blob/master/pj/lexer.py. Pull requests fixing anything are always appreciated.
 
 ## Usage
 Grab a JAR from the release page or clone this project and insert it into
@@ -43,4 +43,10 @@ json.deleteRule(2);
 ### Writing to a file
 ```java
 json.toFile("file.json");
+```
+### Reading from a file
+#### ⚠ Warning:
+This feature is currently _very_ buggy and should probably not be used yet. As always, pull requests would be appreciated!
+```java
+json.fromFile("path/to/file.json");
 ```
