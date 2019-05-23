@@ -50,3 +50,4 @@ This feature is currently _very_ buggy and should probably not be used yet. As a
 ```java
 json.fromFile("path/to/file.json");
 ```
+If you need to save a JSONObject, try using [serialization](https://www.tutorialspoint.com/java/java_serialization.htm) for now. 
