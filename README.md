@@ -1,5 +1,5 @@
 # JSON4Java
-My implementation of methods handling JSON data in Java. The parser and lexer used here were appropriated and translated from Eaton Phil's awesome pj library found at https://github.com/eatonphil/pj/blob/master/pj/lexer.py. Pull requests fixing anything are always appreciated. __This library is not bug free by any means yet. If you don't want to spend time dealing with some downright weird bugs, you might want to find another solution to your problem.__
+My implementation of methods handling JSON data in Java. The parser and lexer used here were appropriated and translated from Eaton Phil's awesome pj library found at https://github.com/eatonphil/pj/blob/master/pj/lexer.py. Pull requests fixing anything are always appreciated, as is testing and the reporting of issues. __This library is not bug free by any means yet. If you don't want to spend time dealing with some downright weird bugs, you might want to find another solution to your problem.__
 
 ## Usage
 Grab a JAR from the release page or clone this project and insert it into
@@ -34,7 +34,7 @@ JSONRule rule = json.searchSelector("name");
 ### Deleting rules
 ```java
 json.deleteRule("name");
-json.removeRule("city");
+json.removeRule("location");
 ```
 Rules at a certain index can be deleted in a similar fashion:
 ```java
